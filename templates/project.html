@@ -1,0 +1,21 @@
+{% extends "nav.html" %}
+<title>{% block title %}{{name}}{% endblock %}</title>
+{% block style %}
+<style>
+    body{
+        background: lightgreen;
+    }
+    #name{
+        position: absolute;
+        color: white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <h1 id="name">
+        {{name}}
+    </h1>
+{% endblock %}
