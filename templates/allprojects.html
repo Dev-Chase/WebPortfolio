@@ -2,6 +2,77 @@
 <title>{% block title %}Projects{% endblock %}</title>
 {% block style %}
 <style>
+    #content{
+        margin-top: 15px;
+        position: absolute;
+        left: 40%;
+        transform: translateX(-40%);
+        display: grid;
+        grid-column-gap: 20px;
+        grid-auto-rows: 175px;
+        grid-row-gap: 15px;
+    }
+    @media screen and (max-width: 250px) {
+        #content{
+            left: 10%;
+            transform: translateX(-50%);
+        }
+    }
+    @media screen and (max-width: 350px) and (min-width: 250px) {
+        #content{
+            left: 15%;
+            transform: translateX(-15%);
+        }
+    }
+    @media screen and (max-width: 500px) and (min-width: 350px){
+        #content{
+            left: 20%;
+            transform: translateX(-20%);
+        }
+    }
+    @media screen and (max-width: 550px) and (min-width: 500px){
+        #content{
+            left: 10%;
+        transform: translateX(-10%);
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+        .card{
+            width: 150px;
+            height: 75px;
+        }
+    }
+    @media screen and (max-width: 650px) and (min-width: 550px){
+        #content{
+            left: 10%;
+        transform: translateX(-10%);
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 15px;
+        }
+        .card{
+            width: 200px;
+            height: 125px;
+        }
+    }
+    @media screen and (max-width: 900px) and (min-width: 650px) {
+        #content {
+            left: 30%;
+            transform: translateX(-30%);
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media screen and (min-width: 900px) and (max-width: 1000px) {
+        #content{
+            left: 30%;
+            transform: translateX(-30%);
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
+    @media (min-width: 1000px) {
+        #content{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
     #test{
         color: white;
         text-decoration: none;

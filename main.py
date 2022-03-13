@@ -4,7 +4,14 @@ import numpy as np
 # Creating Base Arrays
 projects_arr = [
         ["Pythagorean Thereum", "004bd41daf", 0],
-        ["Decimal2Binary", "4593ef57f4", 1]
+        ["Decimal2Binary", "4593ef57f4", 1],
+        ["Pythagorean Thereum", "004bd41daf", 2],
+        ["Decimal2Binary", "4593ef57f4", 3],
+        ["Pythagorean Thereum", "004bd41daf", 4],
+        ["Decimal2Binary", "4593ef57f4", 5],
+        ["Pythagorean Thereum", "004bd41daf", 6],
+        ["Decimal2Binary", "4593ef57f4", 7],
+        ["Decimal2Binary", "4593ef57f4", 8]
     ]
 
 app = Flask(__name__)
