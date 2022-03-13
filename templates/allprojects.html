@@ -18,13 +18,13 @@
         height: 175px;
         border-radius: 5px;
         background: #e7e7e7;
-        cursor: pointer;
         /* box-shadow: 0px 2px 10px 5px #000000; */
         transition: box-shadow 200ms linear;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.7)
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.7);
+        text-align: center;
     }
     .card:hover{
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.7);
     }
     .lilcircle{
         width: 10px;
@@ -51,26 +51,42 @@
         margin-left: 3px;
     }
     #code{
-        color: #9c9c9c;
+        color: #8b8b8b;
         font-size: 64px;
         position: relative;
-        left:50%;
         top: 25px;
-        transform: translateX(-55%);
+    }
+    .card-name{
+        position: relative;
+        top: 25px;
+        font-size: 34px;
+        font-weight: 800;
+        color: #8b8b8b;
+        text-decoration: none;
+    }
+    a{
+        text-decoration: none;
     }
 </style>
 {% endblock %}
 <body>
     {% block content %}
-        <div class="card">
-            <div class="card-top">
-                <div class="lilcircle red-circle"></div>
-                <div class="lilcircle yellow-circle"></div>
-                <div class="lilcircle green-circle"></div>
-            </div>
-            <div class="card-info">
-                <span class="fa-solid fa-code" id="code"></span>
-            </div>
-        </div>
+        {% set i = 0 %}
+        {% for proj in project_list %}
+            <a class="card-link" href="/project/{{proj[2]}}">
+                <div class="card">
+                        <div class="card-top">
+                        <div class="lilcircle red-circle"></div>
+                        <div class="lilcircle yellow-circle"></div>
+                        <div class="lilcircle green-circle"></div>
+                    </div>
+                    <div class="card-info">
+                        <span class="fa-solid fa-code" id="code"></span>
+                        <p class="card-name">{{proj[0]}}</p>
+                    </div>
+                </div>
+            </a>
+            {% set i = i + 1 %}
+        {% endfor %}
     {% endblock %}
 </body>

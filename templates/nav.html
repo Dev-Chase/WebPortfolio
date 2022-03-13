@@ -36,7 +36,7 @@
             padding: 0;
             left: 0;
             top: 0;
-            /* font-family: 'Syne Mono', monospace; */
+            z-index: 999;
             font-family: 'Smooch Sans', sans-serif;
             display: grid;
             place-items: center;
@@ -58,7 +58,7 @@
         }
         #nav-btn{
             position: absolute;
-            z-index: 100;
+            z-index: 1000;
             top: 0;
             left: 0;
             width: 3em;
@@ -195,7 +195,7 @@
                     contactbtn.innerText = "Contact Info";
                     aboutbtn.innerText = "About Me";
                     ico.innerText = "CC's Projects";
-                }, 105);
+                }, 60);
                 
             } else{
                 nav.style.animationName = "slidein";

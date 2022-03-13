@@ -1,7 +1,15 @@
 {% extends "nav.html" %}
-<title>{% block title %}{{name}}{% endblock %}</title>
+<title>{% block title %}{{project_list[ind][0]}}{% endblock %}</title>
 {% block style %}
 <style>
+    #name{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+    }
     #proj{
         position: absolute;
         color: white;
@@ -9,7 +17,7 @@
         background: none;
         border: none;
         width: 500px;
-        height: 125px;
+        height: 300px;
     }
     #content{
         margin-left: 60px;
@@ -17,5 +25,8 @@
 </style>
 {% endblock %}
 {% block content %}
-<iframe id="proj" src="https://trinket.io/embed/python/004bd41daf?outputOnly=true&runOption=run&start=result" allowfullscreen></iframe>
+<div id="name">
+    {{project_list[ind][0]}}
+</div>
+<iframe id="proj" src="https://trinket.io/embed/python/{{project_list[ind][1]}}?outputOnly=true&runOption=run&start=result" allowfullscreen></iframe>
 {% endblock %}
