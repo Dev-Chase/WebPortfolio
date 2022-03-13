@@ -2,20 +2,20 @@
 <title>{% block title %}{{name}}{% endblock %}</title>
 {% block style %}
 <style>
-    body{
-        background: lightgreen;
-    }
-    #name{
+    #proj{
         position: absolute;
         color: white;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        background: none;
+        border: none;
+        width: 500px;
+        height: 125px;
+    }
+    #content{
+        margin-left: 60px;
     }
 </style>
 {% endblock %}
 {% block content %}
-    <h1 id="name">
-        {{name}}
-    </h1>
+<iframe id="proj" src="https://trinket.io/embed/python/004bd41daf?outputOnly=true&runOption=run&start=result" allowfullscreen></iframe>
 {% endblock %}
