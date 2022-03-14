@@ -1,26 +1,20 @@
 import os
 from flask import Flask, url_for, redirect, render_template, send_from_directory
 import numpy as np
+import pandas as pd
 
 # Creating Base Arrays
-projects_arr = [
-        ["Pythagorean Thereum", "004bd41daf", 0],
-        ["Decimal2Binary", "4593ef57f4", 1],
-        ["Pythagorean Thereum", "004bd41daf", 2],
-        ["Decimal2Binary", "4593ef57f4", 3],
-        ["Pythagorean Thereum", "004bd41daf", 4],
-        ["Decimal2Binary", "4593ef57f4", 5],
-        ["Pythagorean Thereum", "004bd41daf", 6],
-        ["Decimal2Binary", "4593ef57f4", 7],
-        ["Decimal2Binary", "4593ef57f4", 8]
-    ]
+df = pd.read_csv('./assets/projects.csv', index_col=0)
+projects_arr = []
+for i in range(len(df.index)):
+    projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
 
 app = Flask(__name__)
 
 # Creating Pages
-@app.route('/favicon.ico')
-def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+# @app.route('/favicon.ico')
+# def favicon():
+#     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route("/", methods=['GET', 'POST'])
 def home():

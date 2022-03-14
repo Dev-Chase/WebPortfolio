@@ -2,8 +2,18 @@
 <title>{% block title %}Home{% endblock %}</title>
 {% block style %}
 <style>
+    #main-info{
+        color: white;
+    }
+    #main-info > a{
+        color: rgb(2, 19, 255);
+    }
 </style>
 {% endblock %}
 {% block content %}
-
+<div id="main-info">
+    Hi I'm Chase Curwin, I am currently age 13 (in March 2022) and I have been coding for about 3 years now.
+    This website is a project I have taken up to host all my current and future projects I may make as a sort of portfolio of all my work.
+    For more information on who I am or how to contact me visit the <a href="{{url_for('about')}}">about page</a> or the <a href="{{url_for('contact')}}">contact page</a>
+</div>
 {% endblock %}
