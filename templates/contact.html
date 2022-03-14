@@ -45,55 +45,118 @@
         transform: translateX(-50%);
         color: rgb(56, 48, 48);
         font-size: 10em;
+        animation-duration: 230ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
     }
     #ctnt-card-usr-info{
         font-family: 'Smooch Sans', sans-serif;
         font-weight: 600;
         color: rgb(56, 48, 48);
         font-size: 1.6em;
-        left: 12%;
+        left: 30%;
         position: relative;
-        opacity: 0;
-        animation-duration: 0.8s;
+        /* opacity: 0; */
+        animation-duration: 260ms;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
+    }
+    #ctnt-header{
+        font-family: 'Smooch Sans', sans-serif;
+        font-weight: 600;
+        color: rgb(56, 48, 48);
+        font-size: 1.6em;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        animation-duration: 260ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        background: yellow;
+        width: 100%;
+        height: 50%;
+        border-radius: 20px;
+    }
+    #ctnt-header{
+        left:50%;
+        transform: translate(-50%, -100%);
+    }
+    #ctnt-footer{
+        left:50%;
+        transform: translate(-50%, 100%);
     }
     .ctnt-card-info{
         border-bottom: 2.5px dotted rgb(56, 48, 48);
     }
-    .show{
+    .show_txt{
         animation-name: show_txt;
     }
-    .hide{
+    .hide_txt{
         animation-name: hide_txt;
     }
+    .show_ico{
+        animation-name: show_ico;
+    }
+    .hide_ico{
+        animation-name: hide_ico;
+    }
     @keyframes show_txt {
-        0%{opacity: 0;}
-        100%{opacity: 100;}
+        0%{opacity: 0; left: 30%}
+        20%{opacity: 0;}
+        100%{opacity: 100; left: -20%;}
+    }
+    @keyframes hide_txt {
+        0%{opacity: 100; left: -20%;}
+        80%{opacity: 0;}
+        100%{opacity: 0; left: 30%}
+    }
+    @keyframes show_ico {
+        0%{opacity: 0; left: 0%}
+        20%{opacity: 0;}
+        100%{opacity: 100; left: 50%;}
+    }
+    @keyframes hide_ico {
+        0%{opacity: 100; left: 50%;}
+        80%{opacity: 0;}
+        100%{opacity: 0; left: 0%}
     }
 </style>
 {% endblock %}
 {% block content %}
 <div id="ctnt-card" class="ctnt-card">
     <span class="fa-solid fa-user" id="ctnt-card-usr-ico"></span>
+    <div class="ctnt-sect" id="ctnt-header"></div>
     <div id="ctnt-card-usr-info" >
         <p class="ctnt-card-info">You can contact me at the following places:</p>
-        <p class="ctnt-card-info ctnt-card-email">At my Email is chasecurwin@gmail.com</p>
-        <p class="ctnt-card-info ctnt-card-disc">At my Discord handle is C_C#8782</p>
-</div>
+        <p class="ctnt-card-info ctnt-card-email">At my Email: chasecurwin@gmail.com</p>
+        <p class="ctnt-card-disc">At my Discord handle: @C_C#8782</p>
+    </div>
+    <div class="ctnt-sect" id="ctnt-footer"></div>
 {% endblock %}
 {% block script %}
 <script>
-    let contactbtn = document.getElementById("ctnt-card");
-    let contactico = document.getElementById("ctnt-card-usr-ico");
-    let contacttxt = document.getElementById("ctnt-card-usr-info");
+    // let contact = document.getElementById("ctnt-card");
+    // let contactico = document.getElementById("ctnt-card-usr-ico");
+    // let contacttxt = document.getElementById("ctnt-card-usr-info");
 
-    contactbtn.addEventListener("click", () => {
-        if (contacttxt.style.animationName == "" || contacttxt.style.animationName == "hide_txt") {
-            contacttxt.classList.add("show")
-        } else{
-            contacttxt.classList.add("hide");
-        }
-    });
+    // let is_clicked = false;
+    // contact.addEventListener("click", () => {
+    //     if (!is_clicked) {
+    //         contacttxt.classList.remove("hide_txt");
+    //         contacttxt.classList.add("show_txt");
+    //         contactico.classList.remove("show_ico");
+    //         contactico.classList.add("hide_ico");
+    //         is_clicked = !is_clicked
+    //         console.log('hello1');
+    //     } else{
+    //         console.log('hello2');
+    //         contacttxt.classList.remove("show_txt");
+    //         contacttxt.classList.add("hide_txt");
+    //         contactico.classList.remove("hide_ico");
+    //         contactico.classList.add("show_ico");
+    //         is_clicked = !is_clicked
+    //     }
+    // });
 </script>
 {% endblock %}
