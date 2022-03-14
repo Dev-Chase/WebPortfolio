@@ -2,8 +2,98 @@
 <title>{% block title %}Contact{% endblock %}</title>
 {% block style %}
 <style>
+    @media screen and (max-height: 300px) {
+        #content{
+            font-size: 10px;
+        }
+    }
+    @media screen and (max-width: 300px){
+        #content{
+            font-size: 7.5px;
+        }
+    }
+    @media screen and (max-width: 600px) and (min-width: 300px){
+        #content{
+            font-size: 10px;
+        }
+    }
+    @media screen and (min-width: 1000px){
+        #content{
+            font-size: 15px;
+        }
+    }
+    .ctnt-card{
+        height: 30em;
+        width: 20em;
+        background: white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        margin: 0;
+        margin-left: 25px;
+        border-radius: 20px;
+        display: flex;
+        place-items: center;
+        user-select: none;
+        cursor: pointer;
+    }
+    #ctnt-card-usr-ico{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgb(56, 48, 48);
+        font-size: 10em;
+    }
+    #ctnt-card-usr-info{
+        font-family: 'Smooch Sans', sans-serif;
+        font-weight: 600;
+        color: rgb(56, 48, 48);
+        font-size: 1.6em;
+        left: 12%;
+        position: relative;
+        opacity: 0;
+        animation-duration: 0.8s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    .ctnt-card-info{
+        border-bottom: 2.5px dotted rgb(56, 48, 48);
+    }
+    .show{
+        animation-name: show_txt;
+    }
+    .hide{
+        animation-name: hide_txt;
+    }
+    @keyframes show_txt {
+        0%{opacity: 0;}
+        100%{opacity: 100;}
+    }
 </style>
 {% endblock %}
 {% block content %}
+<div id="ctnt-card" class="ctnt-card">
+    <span class="fa-solid fa-user" id="ctnt-card-usr-ico"></span>
+    <div id="ctnt-card-usr-info" >
+        <p class="ctnt-card-info">You can contact me at the following places:</p>
+        <p class="ctnt-card-info ctnt-card-email">At my Email is chasecurwin@gmail.com</p>
+        <p class="ctnt-card-info ctnt-card-disc">At my Discord handle is C_C#8782</p>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+    let contactbtn = document.getElementById("ctnt-card");
+    let contactico = document.getElementById("ctnt-card-usr-ico");
+    let contacttxt = document.getElementById("ctnt-card-usr-info");
 
+    contactbtn.addEventListener("click", () => {
+        if (contacttxt.style.animationName == "" || contacttxt.style.animationName == "hide_txt") {
+            contacttxt.classList.add("show")
+        } else{
+            contacttxt.classList.add("hide");
+        }
+    });
+</script>
 {% endblock %}

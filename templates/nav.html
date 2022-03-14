@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@400;500&family=Hubballi&family=Quicksand:wght@300&family=Roboto+Condensed:wght@700&family=Share&family=Smooch+Sans:wght@300&family=Titillium+Web&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Dosis:wght@400;500&family=Hubballi&family=Josefin+Sans:wght@300&family=Quicksand:wght@300&family=Roboto+Condensed:wght@700&family=Share&family=Smooch+Sans:wght@300&family=Titillium+Web&family=Ubuntu:wght@300&family=Yanone+Kaffeesatz&display=swap');
         
         *{
             padding: 0;
@@ -128,7 +128,7 @@
         }
         #ico{
                 color: white;
-                transition: 200ms color linear;
+                transition: 100ms color linear;
             }
         @media screen and (min-width: 1000px) {
             #main-pages > li:hover .link{
@@ -139,7 +139,7 @@
             }
             #nav-ico{
                 color: white;
-                transition: 150ms color linear;
+                transition: 100ms color linear;
             }
             #nav-ico:hover{
                 color:rgb(97, 190, 60);
@@ -187,11 +187,12 @@
                         <a href="{{url_for('projects')}}" class="link fa-solid fa-folder fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('projects')}}" class="span" id="a2"></a>
                     </li>
                     <li class="nav-link" id="link3">
-                        <a href="{{url_for('contact')}}" class="link fa-solid fa-address-book fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('contact')}}" class="span" id="a3"></a>
+                        <a href="{{url_for('about')}}" class="link fa-solid fa-address-card fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('about')}}" class="span" id="a3"></a>
                     </li>
                     <li class="nav-link" id="link4">
-                        <a href="{{url_for('about')}}" class="link fa-solid fa-address-card fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('about')}}" class="span" id="a4"></a>
+                        <a href="{{url_for('contact')}}" class="link fa-solid fa-address-book fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('contact')}}" class="span" id="a4"></a>
                     </li>
+                    
                 </ul>
             </div>
         </nav>
@@ -207,8 +208,8 @@
         let nav = document.getElementById("nav");
         let homebtn = document.getElementById("a1");
         let projectbtn = document.getElementById("a2");
-        let contactbtn = document.getElementById("a3");
-        let aboutbtn = document.getElementById("a4");
+        let aboutbtn = document.getElementById("a3");
+        let contactbtn = document.getElementById("a4");
         let ico = document.getElementById("ico");
         let linkText = document.querySelectorAll(".span");
         console.log(window.innerWidth);
@@ -262,5 +263,6 @@
             }
         });
     </script>
+    {% block script %}{% endblock %}
 </body>
 </html>

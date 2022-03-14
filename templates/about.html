@@ -2,8 +2,69 @@
 <title>{% block title %}About{% endblock %}</title>
 {% block style %}
 <style>
+        @media screen and (max-height: 300px) {
+            #content{
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 300px){
+            #content{
+                font-size: 7.5px;
+            }
+        }
+        @media screen and (max-width: 600px) and (min-width: 300px){
+            #content{
+                font-size: 10px;
+            }
+        }
+        @media screen and (min-width: 1000px){
+            #content{
+                font-size: 20px;
+            }
+        }
+    .abt-card{
+        height: 20em;
+        width: 30em;
+        background: white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0;
+        margin: 0;
+        margin-left: 25px;
+        border-radius: 20px;
+        display: flex;
+        place-items: center;
+        user-select: none;
+    }
+    #abt-card-usr-ico{
+        position: relative;
+        left: 8%;
+        color: rgb(56, 48, 48);
+        font-size: 10em;
+    }
+    #abt-card-usr-info{
+        font-family: 'Smooch Sans', sans-serif;
+        font-weight: 600;
+        color: rgb(56, 48, 48);
+        font-size: 1.6em;
+        left: 12%;
+        position: relative;
+    }
+    .abt-card-info{
+        border-bottom: 2.5px dotted rgb(56, 48, 48);
+    }
 </style>
 {% endblock %}
 {% block content %}
-
+<div class="abt-card">
+    <span class="fa-solid fa-user" id="abt-card-usr-ico"></span>
+    <div id="abt-card-usr-info" >
+        <p class="abt-card-info abt-card-name">Name: Chase Curwin</p>
+        <p class="abt-card-info abt-card-age">Age: 13 Years</p>
+        <p class="abt-card-info abt-card-occupation">Occupation: Student</p>
+        <p class="abt-card-email">Email: chasecurwin@gmail.com</p>
+    </div>
+</div>
 {% endblock %}

@@ -6,14 +6,15 @@
         color: white;
     }
     #main-info > a{
-        color: rgb(2, 19, 255);
+        color: rgb(58, 69, 224);
     }
 </style>
 {% endblock %}
 {% block content %}
 <div id="main-info">
-    Hi I'm Chase Curwin, I am currently age 13 (in March 2022) and I have been coding for about 3 years now.
-    This website is a project I have taken up to host all my current and future projects I may make as a sort of portfolio of all my work.
-    For more information on who I am or how to contact me visit the <a href="{{url_for('about')}}">about page</a> or the <a href="{{url_for('contact')}}">contact page</a>
+    <p> Hi I'm Chase Curwin, I currently 13 years old and I have been learning how to code for about 3 years now.</p>
+    <p> My earliest projects were some websites that I am not too proud of that I made with little knowledge of HTML, CSS, and JavaScript.</p>
+    <p> This website is a throwback of sorts to those old projects and I have decided to use it to host some projects I've made as a sort of portfolio for my work.</p>
+    <p> For more information on who I am or how to contact me visit the <a href="{{url_for('about')}}">about</a> page or the <a href="{{url_for('contact')}}">contact</a> page.</p>
 </div>
 {% endblock %}
