@@ -36,9 +36,9 @@
             margin: 0;
             padding: 0;
             left: 0;
-            top: 0;
             z-index: 999;
             font-family: 'Smooch Sans', sans-serif;
+            top: 0;
             display: grid;
             place-items: center;
             height: 200%;
@@ -64,12 +64,13 @@
             left: 0;
             width: 3em;
             height: 3em;
-            display:     grid;
+            display: grid;
             place-items: center;
             background: none;
         }
         #nav-ico{
             color:white;
+            transition: 150ms color linear;
             font-size: 24px;
             cursor: pointer;
         }
@@ -120,6 +121,30 @@
         #main-pages{
             list-style-type: none;
         }
+        .link, .span{
+            color: white;
+            transition: 150ms color linear;
+        }
+        #main-pages > li:hover .link{
+            color:rgb(97, 190, 60);
+        }
+        #main-pages > li:hover .span{
+            color:rgb(97, 190, 60);
+        }
+        #nav-ico{
+            color: white;
+            transition: 150ms color linear;
+        }
+        #nav-ico:hover{
+            color:rgb(97, 190, 60);
+        }
+        #ico{
+            color: white;
+            transition: 150ms color linear;
+        }
+        #ico:hover{
+            color: rgb(97, 190, 60);
+        }
         .link{
             text-decoration: none;
             color: #ffffff;
@@ -148,10 +173,10 @@
         </div>
         <nav id="nav" class="anim">
             <div id="nav-container">
-                <div class="nav-element" id="nav-main">
-                    <a href="{{url_for('home')}}" style="text-decoration: none; color:white;" id="ico">CC</a>
+                <div id="nav-main">
+                    <a href="{{url_for('home')}}" style="text-decoration: none;" id="ico">CC</a>
                 </div>
-                <ul class="nav-element" id="main-pages">
+                <ul id="main-pages">
                     <li class="nav-link" id="link1">
                         <a href="{{url_for('home')}}" class="link fa-solid fa-house fa-beat" style="--fa-animation-duration: 2s"></a><a href="{{url_for('home')}}" class="span" id="a1"></a>
                     </li>
