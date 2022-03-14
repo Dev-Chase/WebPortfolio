@@ -12,7 +12,7 @@
         grid-auto-rows: 175px;
         grid-row-gap: 15px;
     }
-    @media screen and (max-width: 250px) {
+    /* @media screen and (max-width: 250px) {
         #content{
             left: 10%;
             transform: translateX(-50%);
@@ -23,14 +23,15 @@
             left: 15%;
             transform: translateX(-15%);
         }
-    }
-    @media screen and (max-width: 500px) and (min-width: 350px){
+    } */
+    @media screen and (max-width: 500px){
         #content{
             left: 20%;
             transform: translateX(-20%);
+            grid-template-columns: 1fr;
         }
     }
-    @media screen and (max-width: 550px) and (min-width: 500px){
+    @media screen and (max-width: 550px) and (min-width:501px){
         #content{
             left: 10%;
         transform: translateX(-10%);
@@ -102,7 +103,7 @@
         height: 10px;
         border-radius: 50%;
         background: #c1c1c1;
-        margin-top: 3px;
+        margin-top: 6px;
         margin-inline: 3px;
         border: none;
     }
@@ -146,7 +147,7 @@
         {% for proj in project_list %}
             <a class="card-link" href="/project/{{proj[2]}}">
                 <div class="card">
-                        <div class="card-top">
+                    <div class="card-top">
                         <div class="lilcircle red-circle"></div>
                         <div class="lilcircle yellow-circle"></div>
                         <div class="lilcircle green-circle"></div>

@@ -1,4 +1,5 @@
-from flask import Flask, url_for, redirect, render_template
+import os
+from flask import Flask, url_for, redirect, render_template, send_from_directory
 import numpy as np
 
 # Creating Base Arrays
@@ -17,6 +18,10 @@ projects_arr = [
 app = Flask(__name__)
 
 # Creating Pages
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('home.html')

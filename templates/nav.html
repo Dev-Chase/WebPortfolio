@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
@@ -219,8 +220,8 @@
                     });
                     homebtn.innerText = "Home";
                     projectbtn.innerText = "Projects";
-                    contactbtn.innerText = "Contact Info";
-                    aboutbtn.innerText = "About Me";
+                    contactbtn.innerText = "Contact";
+                    aboutbtn.innerText = "About";
                     ico.innerText = "CC's Projects";
                 }, 60);
                 
