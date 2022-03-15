@@ -36,7 +36,6 @@
         border-radius: 25px;
         display: flex;
         place-items: center;
-        user-select: none;
         cursor: pointer;
     }
     #ctnt-card-usr-ico{
@@ -58,6 +57,7 @@
         position: relative;
         /* opacity: 0; */
         animation-duration: 260ms;
+        z-index: 997;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
         display: flex;
@@ -99,6 +99,7 @@
         font-size: 3em;
         text-decoration: underline;
         color: white;
+        user-select: none;
     }
     #ctnt-footer{
         color: rgb(56, 48, 48);
@@ -145,24 +146,24 @@
         30%{opacity: 100;}
         100%{opacity: 100; transform: translate(-50%, 100%);}
     }
-    #ctnt-line{
-        /* rgb(41, 114, 12) */
+    /* #ctnt-line{
+        rgb(41, 114, 12)
         position: absolute;
         background: rgb(41, 114, 12);
         width: 1em;
         height: 30em;
-        z-index: 997;
+        z-index: 995;
         left:100%;
         transform: translateY(100%);
         top: -100%;
-    }
+    } */
     .ctnt-bump{
         position: absolute;
-        background: rgb(56, 48, 48);
+        background: white;
         width: 2.7em;
         height: 4.85em;
-        z-index: 996;
-        left:97%;
+        left:92%;
+        z-index: 1;
         border-radius: 15px;
         /* top: 100px; */
     }
@@ -172,24 +173,25 @@
     .bump3{
         bottom: 3.85em;
     }
-    
+    .notbump{
+        z-index: 997;
+    }
 </style>
 {% endblock %}
 {% block content %}
 <div id="ctnt-card" class="ctnt-card">
-    <span class="fa-solid fa-user" id="ctnt-card-usr-ico"></span>
-    <div class="ctnt-sect" id="ctnt-header">
-        <p id="ctnt-title">Contacts</p>
+    <span class="fa-solid fa-user notbump" id="ctnt-card-usr-ico"></span>
+    <div class="ctnt-sect notbump" id="ctnt-header">
+        <p id="ctnt-title" class="">Contacts</p>
     </div>
     <div id="ctnt-card-usr-info" >
-        <p class="ctnt-card-title">Where you can contact me:</p>
+        <p class="ctnt-card-title notbump">Where you can contact me:</p>
         <p class="ctnt-card-main-info ctnt-card-email">Email: chasecurwin@gmail.com</p>
         <p class="ctnt-card-main-info ctnt-card-disc">Discord: @C_C#8782</p>
     </div>
-    <div class="ctnt-sect" id="ctnt-footer"></div>
-    <div id="ctnt-line"></div>
+    <div class="ctnt-sect notbump" id="ctnt-footer"></div>
+    <!-- <div id="ctnt-line"></div> -->
     <div class="bump1 ctnt-bump"></div>
-    <div class="ctnt-bump"></div>
     <div class="bump3 ctnt-bump"></div>
 </div>
 {% endblock %}

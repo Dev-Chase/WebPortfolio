@@ -2,37 +2,36 @@
 <title>{% block title %}About{% endblock %}</title>
 {% block style %}
 <style>
-        @media screen and (max-height: 300px) {
-            #content{
-                font-size: 10px;
-            }
+    @media screen and (max-height: 300px) {
+        #content{
+            font-size: 10px;
         }
-        @media screen and (max-width: 300px){
-            #content{
-                font-size: 7.5px;
-            }
+    }
+    @media screen and (max-width: 300px){
+        #content{
+            font-size: 7.5px;
         }
-        @media screen and (max-width: 600px) and (min-width: 300px){
-            #content{
-                font-size: 10px;
-            }
+    }
+    @media screen and (max-width: 600px) and (min-width: 300px){
+        #content{
+            font-size: 10px;
         }
-        @media screen and (min-width: 1000px){
-            #content{
-                font-size: 20px;
-            }
+    }
+    @media screen and (min-width: 1000px){
+        #content{
+            font-size: 20px;
         }
+    }
     .abt-card{
-        height: 20em;
-        width: 30em;
         background: rgb(56, 48, 48);
-        position: fixed;
+        position: relative;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        height: 20em;
+        width: 30em;
+        transform: translate(-50%, 5%);
         padding: 0;
-        margin: 0;
-        margin-left: 25px;
+        margin: 0 0 0 25px;
         border-radius: 20px;
         display: flex;
         place-items: center;
@@ -52,8 +51,35 @@
         left: 12%;
         position: relative;
     }
+    #abt-card-usr-info > p{
+        cursor: text;
+    }
     .abt-card-info{
         border-bottom: 2.5px solid white;
+    }
+    #main-info{
+        cursor: pointer;
+        margin-left: 25px;
+        position: relative;
+        height: 20em;
+        width: 35em;
+        border-radius: 25px;
+        background: rgb(56, 48, 48);
+        color: #ffffff;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 10%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Smooch Sans', sans-serif;
+        font-weight: 600;
+        font-size: 1em;
+    }
+    .main-info-txt{
+        padding: 20px;
+        cursor: text;
     }
 </style>
 {% endblock %}
@@ -66,5 +92,12 @@
         <p class="abt-card-info abt-card-occupation">Occupation: Student</p>
         <p class="abt-card-email">Email: chasecurwin@gmail.com</p>
     </div>
+</div>
+<div id="main-info">
+    <p class="main-info-txt"> Hi I'm Chase Curwin, I am currently 13 years old and I have been learning how to code for about 3 years.</p>
+    <!-- <br> -->
+    <p class="main-info-txt"> This website was created as a place to host most if not all of my projects, rather it's kind of a portfolio.</p>
+    <!-- <br> -->
+    <p class="main-info-txt"> For more information on who I am or how to contact me visit the <a href="{{url_for('about')}}">about</a> page or the <a href="{{url_for('contact')}}">contact</a> page.</p>
 </div>
 {% endblock %}
