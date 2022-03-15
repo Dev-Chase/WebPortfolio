@@ -24,7 +24,7 @@
     }
     #name{
         text-align: center;
-        color: white;
+        color: #e7e7e7;
         font-size: 2em;
         /* font-family: 'Anton', sans-serif; */
         /* font-family: 'Dosis', sans-serif; */
@@ -35,41 +35,72 @@
         font-family: 'Smooch Sans', sans-serif;
         /* font-family: 'Titillium Web', sans-serif; */
     }
-    #proj{
-        position: relative;
-        color: white;
-        border-radius: 15px;
-        background: none;
-        border: none;
-        width: 60%;
-        height: 300px;
-        margin-top: 10px;
-        background: rgb(56, 48, 48);
-    }
     #content{
         margin-left: 60px;
         display: flex;
         align-items: center;
         flex-direction: column;
     }
+    #proj-txt{
+        position: relative;
+        color: #e7e7e7;
+        border-radius: 15px;
+        width: 75%;
+        margin-top: 10px;
+        background: rgb(56, 48, 48);
+    }
+    #proj-info{
+        padding: 10px;
+    }
     .txt-line{
-        color: white;
+        color: #e7e7e7;
         font-size: 1.3em;
+    }
+    footer{
+        position: absolute;
+        bottom: 0;
+        height: 2.3em;
+        color: #e7e7e7;
+        left: 0;
+        justify-content: center;
+        width: 100%;
+        background: rgb(56, 48, 48);
+        display: flex;
+        align-items: center;
+    }
+    #icons-credit{
+        color: #e7e7e7;
+    }
+    .download_link{
+        background: white;
+        width: 300px;
+        height: 300px;
+        text-decoration: none;
+        border-radius: 50%;
     }
 </style>
 {% endblock %}
 {% block content %}
-<h1 id="name">
-    {{project_list[ind][0]}}
-</h1>
 <div id="proj-txt">
-    {% for line in projtxt %}
-        {% if line == "\n" %}
-            <br>
-        {% else %}
-            <p class="txt-line">{{line}}</p>
-        {% endif %}
-    {% endfor %}
+    <h1 id="name">
+        {{project_list[ind][0]}}
+    </h1>   
+    <div id="proj-info">
+        {% for line in projtxt %}
+            {% if line == "\n" %}
+                <br>
+            {% else %}
+                <p class="txt-line">{{line}}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="proj-downloads">
+        <a href="{{download_link}}" class="download_link" download><img src="{{download_ico}}" class="download_ico"></a>
+    </div>
 </div>
-<!-- <div id="proj"></div> -->
+{% endblock %}
+{% block footer %}
+<footer>
+    <a target="_blank" href="https://icons8.com/icon/xuNL8GmRDT5i/uno">Uno</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+</footer>
 {% endblock %}

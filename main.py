@@ -1,4 +1,5 @@
 import os
+from turtle import down
 from flask import Flask, url_for, redirect, render_template, send_from_directory
 import numpy as np
 import pandas as pd
@@ -59,7 +60,9 @@ def project(ind):
     with open(filepath, 'r') as f:
         lines = f.readlines()
     f.close()
-    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines)
+    download_link = f"{os.path.dirname(os.path.abspath(__file__))}/{df.iloc[int(ind)]['PathToExe']}"
+    download_ico = f"{os.path.dirname(os.path.abspath(__file__))}/{df.iloc[int(ind)]['PathToIco']}"
+    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_link=download_link, download_ico=download_ico)
 
 if __name__ == "__main__":
     app.run(debug=True)

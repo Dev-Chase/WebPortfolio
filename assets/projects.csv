@@ -1,4 +1,4 @@
-,Name,File
-0,Console Uno,uno.txt
-1,Decimal2Binary,d2b.txt
-2,Pythagorean Thereum,pt.txt
+,Name,File,PathToExe,PathToIco
+0,Console Uno,uno.txt,./projects/Uno/UnoSetup.exe,./projects/Uno/uno.ico
+1,Decimal2Binary,d2b.txt,./projects/Uno/UnoSetup.exe,./projects/Uno/uno.ico
+2,Pythagorean Thereum,pt.txt,./projects/Uno/UnoSetup.exe,./projects/Uno/uno.ico
