@@ -4,7 +4,8 @@ import numpy as np
 import pandas as pd
 
 # Creating Base Arrays
-df = pd.read_csv('./assets/projects.csv', index_col=0)
+df = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) +
+                 '/assets/projects.csv', index_col=0)
 projects_arr = []
 for i in range(len(df.index)):
     projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
@@ -39,10 +40,26 @@ def contact():
 
 @app.route("/projects", methods=['GET', 'POST'])
 def projects():
+    df = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) +
+                     '/assets/projects.csv', index_col=0)
+    projects_arr = []
+    for i in range(len(df.index)):
+        projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
     return render_template('allprojects.html', project_list=projects_arr)
 
 @app.route("/project/<ind>", methods=['GET', 'POST'])
 def project(ind):
+    df = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) +
+                 '/assets/projects.csv', index_col=0)
+    projects_arr = []
+    for i in range(len(df.index)):
+        projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
+
+    filepath = f"{os.path.dirname(os.path.abspath(__file__))}/static/{df.iloc[i]['File']}"
+    with open(filepath, 'r') as f:
+        lines = f.read()
+        print(lines)
+    f.close()
     return render_template('project.html', project_list=projects_arr, ind = int(ind))
 
 if __name__ == "__main__":

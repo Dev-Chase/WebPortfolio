@@ -1,0 +1,5 @@
+No matter how old you are you probably know what Uno is.
+It's probably one of the most popular card games of all time.
+This game is my spin on it. I created this one as a base game so I could have a base to re-build it in C++.
+The game started automatically when you loaded the page. 
+To play, read the current situation of the game in the window and input what card you would play with a number that represents the card from left to right.
