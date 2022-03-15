@@ -60,8 +60,10 @@ def project(ind):
     with open(filepath, 'r') as f:
         lines = f.readlines()
     f.close()
-    download_link = f"{os.path.dirname(os.path.abspath(__file__))}/{df.iloc[int(ind)]['PathToExe']}"
-    download_ico = f"{os.path.dirname(os.path.abspath(__file__))}/{df.iloc[int(ind)]['PathToIco']}"
+    download_link = f"{df.iloc[int(ind)]['PathToExe']}"
+    download_ico = f"{df.iloc[int(ind)]['PathToIco']}"
+    print(download_ico)
+    print(download_link)
     return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_link=download_link, download_ico=download_ico)
 
 if __name__ == "__main__":
