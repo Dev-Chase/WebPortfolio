@@ -2,34 +2,59 @@
 <title>{% block title %}{{project_list[ind][0]}}{% endblock %}</title>
 {% block style %}
 <style>
+    @media screen and (max-height: 300px) {
+        #content{
+            font-size: 10px;
+        }
+    }
+    @media screen and (max-width: 300px){
+        #content{
+            font-size: 7.5px;
+        }
+    }
+    @media screen and (max-width: 600px) and (min-width: 300px){
+        #content{
+            font-size: 10px;
+        }
+    }
+    @media screen and (min-width: 1000px){
+        #content{
+            font-size: 15px;
+        }
+    }
     #name{
         text-align: center;
         color: white;
-        font-size: 24px;
+        font-size: 2em;
         /* font-family: 'Anton', sans-serif; */
-        font-family: 'Dosis', sans-serif;
+        /* font-family: 'Dosis', sans-serif; */
         /* font-family: 'Hubballi', cursive; */
         /* font-family: 'Quicksand', sans-serif; */
         /* font-family: 'Roboto Condensed', sans-serif; */
         /* font-family: 'Share', cursive; */
-        /* font-family: 'Smooch Sans', sans-serif; */
+        font-family: 'Smooch Sans', sans-serif;
         /* font-family: 'Titillium Web', sans-serif; */
     }
     #proj{
-        position: absolute;
+        position: relative;
         color: white;
         border-radius: 15px;
         background: none;
         border: none;
         width: 60%;
         height: 300px;
-        margin-top: 50px;
+        margin-top: 10px;
         background: rgb(56, 48, 48);
     }
     #content{
         margin-left: 60px;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .txt-line{
+        color: white;
+        font-size: 1.3em;
     }
 </style>
 {% endblock %}
@@ -37,6 +62,14 @@
 <h1 id="name">
     {{project_list[ind][0]}}
 </h1>
-<iframe id="proj" src="https://trinket.io/embed/python3/{{project_list[ind][1]}}?outputOnly=true&runOption=run&start=result"allowfullscreen></iframe>
+<div id="proj-txt">
+    {% for line in projtxt %}
+        {% if line == "\n" %}
+            <br>
+        {% else %}
+            <p class="txt-line">{{line}}</p>
+        {% endif %}
+    {% endfor %}
+</div>
 <!-- <div id="proj"></div> -->
 {% endblock %}

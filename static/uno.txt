@@ -1,5 +1,4 @@
-No matter how old you are you probably know what Uno is.
-It's probably one of the most popular card games of all time.
-This game is my spin on it. I created this one as a base game so I could have a base to re-build it in C++.
-The game started automatically when you loaded the page. 
-To play, read the current situation of the game in the window and input what card you would play with a number that represents the card from left to right.
+No matter how old you are you probably know what Uno is as it's probably one of if not the most popular card game of all time. This game is my spin on it.
+If you're not on Windows unfortunately the only compatible version is the Console Version. To play it read the current situation of the game in the window and input what card you would play with a number that represents the card from top to bottom.
+
+If you are on Windows theres a version for you too, all the game information is at the top and you just have to click on the card you would like to play. Of course, the console version is also compatible for you if you would like to try it.

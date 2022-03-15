@@ -213,55 +213,57 @@
         let ico = document.getElementById("ico");
         let linkText = document.querySelectorAll(".span");
         console.log(window.innerWidth);
-        navbtn.addEventListener("click", () => {
-            if (nav.style.animationName == "" || nav.style.animationName == "slidein"){
-                nav.style.animationName = "slideout";
-                navico.classList.remove('fa-bars');
-                navico.classList.add('fa-xmark');
-                setTimeout(() => {
-                    linkText.forEach(element => {
-                        element.style.padding = "0px 0px 0px 10px";
-                    });
-                    homebtn.innerText = "Home";
-                    projectbtn.innerText = "Projects";
-                    contactbtn.innerText = "Contact";
-                    aboutbtn.innerText = "About";
-                    ico.innerText = "CC's Projects";
-                }, 60);
-                
-            } else{
-                nav.style.animationName = "slidein";
-                navico.classList.remove('fa-xmark');
-                navico.classList.add('fa-bars');
-                setTimeout(() => {
-                    linkText.forEach(element => {
-                        element.style.padding = "0px";
-                    });
-                    homebtn.innerText = "";
-                    projectbtn.innerText = "";
-                    contactbtn.innerText = "";
-                    aboutbtn.innerText = "";
-                    ico.innerText = "CC";
-                }, 25);
-            }
-        });
-        document.getElementById("content").addEventListener("click", () => {
-            if(nav.style.animationName == "slideout"){
-                nav.style.animationName = "slidein";
-                navico.classList.remove('fa-xmark');
-                navico.classList.add('fa-bars');
-                setTimeout(() => {
-                    linkText.forEach(element => {
-                        element.style.padding = "0px";
-                    });
-                    homebtn.innerText = "";
-                    projectbtn.innerText = "";
-                    contactbtn.innerText = "";
-                    aboutbtn.innerText = "";
-                    ico.innerText = "CC";
-                }, 25);
-            }
-        });
+        if (window.innerWidth > 300) {
+            navbtn.addEventListener("click", () => {
+                if (nav.style.animationName == "" || nav.style.animationName == "slidein"){
+                    nav.style.animationName = "slideout";
+                    navico.classList.remove('fa-bars');
+                    navico.classList.add('fa-xmark');
+                    setTimeout(() => {
+                        linkText.forEach(element => {
+                            element.style.padding = "0px 0px 0px 10px";
+                        });
+                        homebtn.innerText = "Home";
+                        projectbtn.innerText = "Projects";
+                        contactbtn.innerText = "Contact";
+                        aboutbtn.innerText = "About";
+                        ico.innerText = "CC's Projects";
+                    }, 60);
+                    
+                } else{
+                    nav.style.animationName = "slidein";
+                    navico.classList.remove('fa-xmark');
+                    navico.classList.add('fa-bars');
+                    setTimeout(() => {
+                        linkText.forEach(element => {
+                            element.style.padding = "0px";
+                        });
+                        homebtn.innerText = "";
+                        projectbtn.innerText = "";
+                        contactbtn.innerText = "";
+                        aboutbtn.innerText = "";
+                        ico.innerText = "CC";
+                    }, 25);
+                }
+            });
+            document.getElementById("content").addEventListener("click", () => {
+                if(nav.style.animationName == "slideout"){
+                    nav.style.animationName = "slidein";
+                    navico.classList.remove('fa-xmark');
+                    navico.classList.add('fa-bars');
+                    setTimeout(() => {
+                        linkText.forEach(element => {
+                            element.style.padding = "0px";
+                        });
+                        homebtn.innerText = "";
+                        projectbtn.innerText = "";
+                        contactbtn.innerText = "";
+                        aboutbtn.innerText = "";
+                        ico.innerText = "CC";
+                    }, 25);
+                }
+            });
+        }
     </script>
     {% block script %}{% endblock %}
 </body>

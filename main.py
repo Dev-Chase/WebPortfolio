@@ -8,7 +8,7 @@ df = pd.read_csv(os.path.dirname(os.path.abspath(__file__)) +
                  '/assets/projects.csv', index_col=0)
 projects_arr = []
 for i in range(len(df.index)):
-    projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
+    projects_arr.append([df.iloc[i]['Name'], i])
 
 app = Flask(__name__)
 
@@ -44,7 +44,7 @@ def projects():
                      '/assets/projects.csv', index_col=0)
     projects_arr = []
     for i in range(len(df.index)):
-        projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
+        projects_arr.append([df.iloc[i]['Name'], i])
     return render_template('allprojects.html', project_list=projects_arr)
 
 @app.route("/project/<ind>", methods=['GET', 'POST'])
@@ -53,14 +53,13 @@ def project(ind):
                  '/assets/projects.csv', index_col=0)
     projects_arr = []
     for i in range(len(df.index)):
-        projects_arr.append([df.iloc[i]['Name'], df.iloc[i]['LinkID'], i])
+        projects_arr.append([df.iloc[i]['Name'], i])
 
-    filepath = f"{os.path.dirname(os.path.abspath(__file__))}/static/{df.iloc[i]['File']}"
+    filepath = f"{os.path.dirname(os.path.abspath(__file__))}/static/{df.iloc[int(ind)]['File']}"
     with open(filepath, 'r') as f:
-        lines = f.read()
-        print(lines)
+        lines = f.readlines()
     f.close()
-    return render_template('project.html', project_list=projects_arr, ind = int(ind))
+    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines)
 
 if __name__ == "__main__":
     app.run(debug=True)
