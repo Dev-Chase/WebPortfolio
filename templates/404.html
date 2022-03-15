@@ -1,0 +1,33 @@
+{% extends "nav.html" %}
+<title>{% block title %}Page not Found{% endblock %}</title>
+{% block style %}
+<style>
+    #content{
+        display: grid;
+        place-items: center;
+    }
+    #name{
+        position: absolute;
+        top: 40%;
+        transform: translateY(-40%); 
+        color: white;
+        font-size: 2em;
+        font-family: 'Smooch Sans', sans-serif;
+    }
+    #home-link{
+        font-weight: 600;
+        color: white;
+        font-size: 2em;
+        font-family: 'Smooch Sans', sans-serif;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); 
+    }
+</style>
+{% endblock %}
+{% block content %}
+<h1 id="name">
+    404. Page not found.
+</h1>
+<a href="{{url_for('home')}}" id="home-link">Go Home</a>
+{% endblock %}

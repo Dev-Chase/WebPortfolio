@@ -16,6 +16,15 @@ app = Flask(__name__)
 # def favicon():
 #     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
+# app name
+@app.errorhandler(404)
+  
+# inbuilt function which takes error as parameter
+def not_found(e):
+  
+# defining function
+  return render_template("404.html")
+
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('home.html')

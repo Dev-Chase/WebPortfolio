@@ -25,7 +25,7 @@
     .ctnt-card{
         height: 30em;
         width: 20em;
-        background: white;
+        background: rgb(56, 48, 48);
         position: fixed;
         top: 50%;
         left: 50%;
@@ -33,7 +33,7 @@
         padding: 0;
         margin: 0;
         margin-left: 25px;
-        border-radius: 20px;
+        border-radius: 25px;
         display: flex;
         place-items: center;
         user-select: none;
@@ -43,7 +43,7 @@
         position: relative;
         left: 50%;
         transform: translate(-50%, 0.5%);
-        color: rgb(56, 48, 48);
+        color: white;
         font-size: 10em;
         animation-duration: 230ms;
         animation-timing-function: linear;
@@ -52,7 +52,7 @@
     #ctnt-card-usr-info{
         font-family: 'Smooch Sans', sans-serif;
         font-weight: 600;
-        color: rgb(56, 48, 48);
+        color: white;
         font-size: 1.6em;
         transform: translate(-50%, 100%);
         position: relative;
@@ -79,42 +79,37 @@
         transform: translateX(7%);
     }
     #ctnt-header{
-        font-family: 'Smooch Sans', sans-serif;
-        font-weight: 600;
         color: rgb(56, 48, 48);
-        font-size: 1.6em;
         top: 33.5%;
         left: 50%;
         transform: translateX(-50%);
         position: absolute;
-        animation-duration: 260ms;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        background: white;
+        background: rgb(56, 48, 48);
         width: 100%;
         height: 33.5%;
-        border-radius: 20px;
-        z-index: 10000;
+        border-radius: 25px;
+        z-index: 998;
         left:50%;
-        transform: translate(-50%, -100%)
+        transform: translate(-50%, -100%);
+        display: grid;
+        place-items: center;
+    }
+    #ctnt-title{
+        font-weight: 900;
+        font-size: 3em;
+        text-decoration: underline;
+        color: white;
     }
     #ctnt-footer{
-        font-family: 'Smooch Sans', sans-serif;
-        font-weight: 600;
         color: rgb(56, 48, 48);
-        font-size: 1.6em;
         top: 33.5%;
         left: 50%;
-        transform: translateX(-50%);
         position: absolute;
-        animation-duration: 260ms;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        background: white;
+        background: rgb(56, 48, 48);
         width: 100%;
         height: 33.5%;
-        border-radius: 20px;
-        z-index: 10000;
+        border-radius: 25px;
+        z-index: 998;
         left:50%;
         transform: translate(-50%, 100%);
     }
@@ -141,51 +136,81 @@
         100%{opacity: 0; transform: translate(-50%, -100%);}
     }
     @keyframes show_txt {
-        0%{opacity: 0; left: 0%}
-        20%{opacity: 0;}
-        100%{opacity: 100; left: 50%;}
+        0%{opacity: 0; transform: translate(-50%, 100%);}
+        70%{opacity: 0;}
+        100%{opacity: 100; transform: translate(-50%, 0.5%);}
     }
     @keyframes hide_txt {
-        0%{opacity: 100; left: 50%;}
-        80%{opacity: 0;}
-        100%{opacity: 0; left: 0%}
+        0%{opacity: 0; transform: translate(-50%, 0.5%);}
+        30%{opacity: 100;}
+        100%{opacity: 100; transform: translate(-50%, 100%);}
     }
+    #ctnt-line{
+        /* rgb(41, 114, 12) */
+        position: absolute;
+        background: rgb(41, 114, 12);
+        width: 1em;
+        height: 30em;
+        z-index: 997;
+        left:100%;
+        transform: translateY(100%);
+        top: -100%;
+    }
+    .ctnt-bump{
+        position: absolute;
+        background: rgb(56, 48, 48);
+        width: 2.7em;
+        height: 4.85em;
+        z-index: 996;
+        left:97%;
+        border-radius: 15px;
+        /* top: 100px; */
+    }
+    .bump1{
+        top: 3.85em;
+    }
+    .bump3{
+        bottom: 3.85em;
+    }
+    
 </style>
 {% endblock %}
 {% block content %}
 <div id="ctnt-card" class="ctnt-card">
     <span class="fa-solid fa-user" id="ctnt-card-usr-ico"></span>
-    <div class="ctnt-sect" id="ctnt-header"></div>
+    <div class="ctnt-sect" id="ctnt-header">
+        <p id="ctnt-title">Contacts</p>
+    </div>
     <div id="ctnt-card-usr-info" >
         <p class="ctnt-card-title">Where you can contact me:</p>
         <p class="ctnt-card-main-info ctnt-card-email">Email: chasecurwin@gmail.com</p>
         <p class="ctnt-card-main-info ctnt-card-disc">Discord: @C_C#8782</p>
     </div>
     <div class="ctnt-sect" id="ctnt-footer"></div>
+    <div id="ctnt-line"></div>
+    <div class="bump1 ctnt-bump"></div>
+    <div class="ctnt-bump"></div>
+    <div class="bump3 ctnt-bump"></div>
+</div>
 {% endblock %}
 {% block script %}
 <script>
     let contact = document.getElementById("ctnt-card");
     let contactico = document.getElementById("ctnt-card-usr-ico");
-    // let contacttxt = document.getElementById("ctnt-card-usr-info");
-
-    let is_clicked = false;
+    let contacttxt = document.getElementById("ctnt-card-usr-info");
+    contacttxt.style.animationDuration = "0.5s";
+    contactico.style.animationDuration = "0.5s";
+    contacttxt.classList.remove("hide_txt");
+    contacttxt.classList.add("show_txt");
+    contactico.classList.remove("show_ico");
+    contactico.classList.add("hide_ico");
     contact.addEventListener("click", () => {
-        if (!is_clicked) {
-            // contacttxt.classList.remove("hide_txt");
-            // contacttxt.classList.add("show_txt");
-            contactico.classList.remove("show_ico");
-            contactico.classList.add("hide_ico");
-            is_clicked = !is_clicked
-            console.log('hello1');
-        } else{
-            console.log('hello2');
-            // contacttxt.classList.remove("show_txt");
-            // contacttxt.classList.add("hide_txt");
-            contactico.classList.remove("hide_ico");
-            contactico.classList.add("show_ico");
-            is_clicked = !is_clicked
-        }
+        contacttxt.style.animationDuration = "260ms";
+        contactico.style.animationDuration = "260ms";
+        contacttxt.classList.toggle("show_txt");
+        contacttxt.classList.toggle("hide_txt");
+        contactico.classList.toggle("hide_ico");
+        contactico.classList.toggle("show_ico");
     });
 </script>
 {% endblock %}
