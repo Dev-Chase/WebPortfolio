@@ -57,7 +57,8 @@ def project(ind):
     f.close()
     download_links = df.iloc[int(ind)]['PathToExe'].split()
     download_icons = df.iloc[int(ind)]['PathToIco'].split()
-    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_links=download_links, download_ico=download_icons)
+    download_names = [i.replace('-', " ") for i in df.iloc[int(ind)]['DownloadNames'].split()]
+    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_links=download_links, download_ico=download_icons, download_names=download_names)
 
 if __name__ == "__main__":
     app.run(debug=True)

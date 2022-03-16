@@ -1,4 +1,4 @@
-,Name,File,PathToExe,PathToIco
-0,Console Uno,uno.txt,/static/UnoSetup.exe /static/ConsoleUnoSetup.exe,/static/uno.png /static/Terminal-Uno.png
-1,Decimal2Binary,d2b.txt,/static/Decimal2Binary.exe,/static/binary.png
-2,Pythagorean Thereum,pt.txt,/static/PythagoreanThereum.exe,/static/pythagorean.png
+,Name,File,PathToExe,PathToIco,DownloadNames
+0,Console Uno,uno.txt,/static/UnoSetup.exe /static/ConsoleUnoSetup.exe,/static/uno.png /static/Terminal-Uno.png,Console-Uno Uno
+1,Decimal2Binary,d2b.txt,/static/Decimal2Binary.exe,/static/binary.png,Binary-Converter
+2,Pythagorean Thereum,pt.txt,/static/PythagoreanThereum.exe,/static/pythagorean.png,Pythagorean-Calculator

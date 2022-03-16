@@ -7,7 +7,7 @@
             font-size: 10px;
         }
         img{
-            transform: scale(0.7);
+            transform: scale(0.35);
         }
     }
     @media screen and (max-width: 300px){
@@ -15,7 +15,7 @@
             font-size: 7.5px;
         }
         img{
-            transform: scale(0.7);
+            transform: scale(0.4);
         }
     }
     @media screen and (max-width: 600px) and (min-width: 300px){
@@ -23,12 +23,16 @@
             font-size: 10px;
         }
         img{
-            transform: scale(0.7);
+            transform: scale(0.4);
+        }
+        #proj-downloads{
+            grid-template-columns: auto;
+            grid-template-rows: 1fr;
         }
     }
     @media screen and (max-width: 850px) and (min-width: 600px) {
         img{
-            transform: scale(0.7);
+            transform: scale(0.5);
         }
     }
     @media screen and (min-width: 1000px){
@@ -60,7 +64,7 @@
         /* font-family: 'Titillium Web', sans-serif; */
     }
     #content{
-        margin-left: 60px;
+        width: 100%;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -72,6 +76,9 @@
         width: 75%;
         margin-top: 10px;
         background: rgb(56, 48, 48);
+        /* margin-left: 25px; */
+        /* left:1em; */
+        /* transform: translateX(-1em); */
     }
     #proj-info{
         padding: 10px;
@@ -95,11 +102,29 @@
     #icons-credit{
         color: #e7e7e7;
     }
+    #proj-downloads{
+        display: grid;
+        /* grid-template-columns: 1fr 1fr; */
+        grid-column-gap: 20px;
+        grid-template-rows: auto;
+    }
+    .download-sec{
+        display: grid;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 0 20px 0;
+    }
     img{
         z-index: 100000;
     }
-    .download_link{
+    .download-link{
         user-select: none;
+    }
+    .download-name{
+        color: #e7e7e7;
+        font-size: 1.3em;
+        text-align: center;
     }
 </style>
 {% endblock %}
@@ -119,9 +144,12 @@
     </div>
 </div>
     <div id="proj-downloads">
-        {% for i in range(download_links|length) %}
-            <a href="{{download_links[i]}}" class="download_link" download><img src="{{download_ico[i]}}" alt=""></a>
-        {% endfor %}
+            {% for i in range(download_links|length) %}
+                <div class="download-sec">
+                    <a href="{{download_links[i]}}" class="download-link" download><img src="{{download_ico[i]}}" alt=""></a>
+                    <p class="download-name">{{download_names[i]}} Download Link</p>
+                </div>
+            {% endfor %}
     </div>
 {% endblock %}
 {% block footer %}
