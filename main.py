@@ -1,6 +1,6 @@
 import os
 from turtle import down
-from flask import Flask, url_for, redirect, render_template, send_from_directory
+from flask import Flask, url_for, redirect, render_template, send_file
 import numpy as np
 import pandas as pd
 
@@ -17,14 +17,10 @@ app = Flask(__name__)
 # @app.route('/favicon.ico')
 # def favicon():
 #     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-# app name
-@app.errorhandler(404)
   
+@app.errorhandler(404)
 # inbuilt function which takes error as parameter
 def not_found(e):
-  
-# defining function
   return render_template("404.html")
 
 @app.route("/", methods=['GET', 'POST'])
@@ -60,11 +56,9 @@ def project(ind):
     with open(filepath, 'r') as f:
         lines = f.readlines()
     f.close()
-    download_link = f"{df.iloc[int(ind)]['PathToExe']}"
-    download_ico = f"{df.iloc[int(ind)]['PathToIco']}"
-    print(download_ico)
-    print(download_link)
-    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_link=download_link, download_ico=download_ico)
+    download_links = df.iloc[int(ind)]['PathToExe'].split()
+    download_icons = df.iloc[int(ind)]['PathToIco'].split()
+    return render_template('project.html', project_list=projects_arr, ind = int(ind), projtxt=lines, download_links=download_links, download_ico=download_icons)
 
 if __name__ == "__main__":
     app.run(debug=True)

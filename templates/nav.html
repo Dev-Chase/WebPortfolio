@@ -213,7 +213,8 @@
         let contactbtn = document.getElementById("a4");
         let ico = document.getElementById("ico");
         let linkText = document.querySelectorAll(".span");
-        console.log(window.innerWidth);
+        console.log(window.innerWidth, "Width");
+        console.log(window.innerHeight, "Height")
         if (window.innerWidth > 300) {
             navbtn.addEventListener("click", () => {
                 if (nav.style.animationName == "" || nav.style.animationName == "slidein"){

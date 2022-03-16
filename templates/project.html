@@ -6,20 +6,44 @@
         #content{
             font-size: 10px;
         }
+        img{
+            transform: scale(0.7);
+        }
     }
     @media screen and (max-width: 300px){
         #content{
             font-size: 7.5px;
+        }
+        img{
+            transform: scale(0.7);
         }
     }
     @media screen and (max-width: 600px) and (min-width: 300px){
         #content{
             font-size: 10px;
         }
+        img{
+            transform: scale(0.7);
+        }
+    }
+    @media screen and (max-width: 850px) and (min-width: 600px) {
+        img{
+            transform: scale(0.7);
+        }
     }
     @media screen and (min-width: 1000px){
         #content{
             font-size: 15px;
+        }
+    }
+    @media screen and (max-height: 700px) and (min-height: 450px){
+        img{
+            transform: scale(0.7);
+        }
+    }
+    @media screen and (max-height: 450px){
+        img{
+            transform: scale(0.5);
         }
     }
     #name{
@@ -57,7 +81,7 @@
         font-size: 1.3em;
     }
     footer{
-        position: absolute;
+        position: fixed;
         bottom: 0;
         height: 2.3em;
         color: #e7e7e7;
@@ -71,12 +95,11 @@
     #icons-credit{
         color: #e7e7e7;
     }
+    img{
+        z-index: 100000;
+    }
     .download_link{
-        background: white;
-        width: 300px;
-        height: 300px;
-        text-decoration: none;
-        border-radius: 50%;
+        user-select: none;
     }
 </style>
 {% endblock %}
@@ -94,13 +117,12 @@
             {% endif %}
         {% endfor %}
     </div>
-    <div id="proj-downloads">
-        <!-- <a href="./uno.png"class="download_link" download="Uno">
-            <img src="./uno.png">
-          </a> -->
-        <a href="/projects/Uno/RegUno.png" class="download_link" download>SDUP</a>
-    </div>
 </div>
+    <div id="proj-downloads">
+        {% for i in range(download_links|length) %}
+            <a href="{{download_links[i]}}" class="download_link" download><img src="{{download_ico[i]}}" alt=""></a>
+        {% endfor %}
+    </div>
 {% endblock %}
 {% block footer %}
 <footer>
